@@ -1,19 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { tabs } from './data';
-import { type Tab } from './types';
+import { type Tab } from '../../types';
 import styled from 'styled-components';
 
 export const Header = ({
   tab,
   setTab,
 }: {
-  tab: Tab | Record<string, unknown>;
+  tab: Tab;
   setTab: React.Dispatch<React.SetStateAction<Tab>>;
 }): JSX.Element => {
-  useEffect(() => {
-    setTab(tabs[0]);
-  }, []);
-
   return (
     <TabsContainer>
       {tabs.map((tabData) => (
