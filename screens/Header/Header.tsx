@@ -1,15 +1,12 @@
+/* eslint-disable no-empty-pattern */
 import React from 'react';
-import { tabs } from './data';
-import { type Tab } from '@/lib/types';
 import styled from 'styled-components';
+import { useAppStore } from '@/lib/storage';
+import { tabs } from './data';
 
-export const Header = ({
-  tab,
-  setTab,
-}: {
-  tab: Tab;
-  setTab: React.Dispatch<React.SetStateAction<Tab>>;
-}): JSX.Element => {
+export const Header = (): JSX.Element => {
+  const tab = useAppStore((state) => state.tab);
+  const setTab = useAppStore((state) => state.setTab);
   return (
     <TabsContainer>
       {tabs.map((tabData) => (

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Header, SpendScreen } from '@/screens';
 import { type Tab } from '@/lib/types';
-import { APP_NAME, SPEND_SCREEN_ID, SPEND_SCREEN_NAME } from '@/lib/constants';
-
+import { APP_NAME, SPEND_SCREEN_ID } from '@/lib/constants';
 import Head from 'next/head';
+import { useAppStore } from '@/lib/storage';
 
 const HeadIndex = (): JSX.Element => {
   return (
@@ -26,12 +26,11 @@ const appRender = ({ tab }: { tab: Tab }): JSX.Element => {
 };
 
 function App(): JSX.Element {
-  const [tab, setTab] = useState({ id: SPEND_SCREEN_ID, title: SPEND_SCREEN_NAME });
-
+  const tab = useAppStore((state) => state.tab);
   return (
     <>
       <HeadIndex />
-      <Header tab={tab} setTab={setTab} />
+      <Header />
       {appRender({ tab })}
     </>
   );
