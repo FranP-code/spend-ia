@@ -1,5 +1,5 @@
-import { SPEND_SCREEN_ID, SPEND_SCREEN_NAME } from '../../constants';
-import { type Tab } from '../../types';
+import { SPEND_SCREEN_ID, SPEND_SCREEN_NAME } from '../../lib/constants';
+import { type Tab } from '../../lib/types';
 
 export const tabs: Tab[] = [
   {

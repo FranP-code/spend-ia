@@ -1,6 +1,6 @@
 import React from 'react';
 import { tabs } from './data';
-import { type Tab } from '../../types';
+import { type Tab } from '@/lib/types';
 import styled from 'styled-components';
 
 export const Header = ({
@@ -35,7 +35,7 @@ const TabsContainer = styled.div`
 const StyledTab = styled.div<{
   active: boolean;
 }>`
-  background: ${({ active }) => (active ? '#443C68' : 'inherit')};
+  background: ${({ active }) => (active ? '#443C68' : '#635985')};
   padding: 12px 0px;
   text-align: center;
   transition: 0.2s ease-in-out all;
