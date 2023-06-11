@@ -13,7 +13,31 @@ module.exports = {
   plugins: ['react', 'prettier', 'sort-keys-fix', 'better-styled-components'],
   rules: {
     '@typescript-eslint/strict-boolean-expressions': 'off',
+    'arrow-body-style': ['error', 'as-needed'],
     'better-styled-components/sort-declarations-alphabetically': 2,
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'unknown',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+          'type',
+        ],
+        pathGroups: [
+          {
+            group: 'external',
+            pattern: '~/**',
+            position: 'after',
+          },
+        ],
+      },
+    ],
     'prettier/prettier': 'error',
     'sort-keys-fix/sort-keys-fix': 'error',
   },

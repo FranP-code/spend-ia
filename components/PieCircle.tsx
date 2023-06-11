@@ -1,22 +1,61 @@
 import React from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import Chart from 'react-google-charts';
+import styled, { useTheme } from 'styled-components';
+import { type Theme } from '@/lib/theme';
+import { type PieCircleData } from '@/lib/types';
 
-export const PieCircle = (): JSX.Element => {
-  ChartJS.register(ArcElement, Tooltip, Legend);
+export const PieCircle = (props: { pieCircleData: PieCircleData }): JSX.Element => {
+  const { pieCircleData } = props;
+  const theme = useTheme() as Theme;
+  const { colors } = theme;
+  const [data, legendData, chartColors] = [
+    pieCircleData.map(([[label, value]]) => [label, parseFloat(value.toFixed(2))]),
+    pieCircleData.map(([, item]) => item),
+    pieCircleData.map(([, { backgroundColor }]) => backgroundColor),
+  ];
   return (
-    <Pie
-      data={{
-        datasets: [
-          {
-            backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
-            data: [300, 50, 100],
-            hoverOffset: 4,
-            label: 'My First Dataset',
-          },
-        ],
-        labels: ['Red', 'Blue', 'Yellow'],
-      }}
-    ></Pie>
+    <PieCircleContainer>
+      <StyledChart
+        chartType="PieChart"
+        data={[['X', 'Y'], ...data]}
+        options={{
+          backgroundColor: colors.primary,
+          colors: chartColors,
+          legend: 'none',
+        }}
+        width={'100%'}
+        height={'400px'}
+      />
+      <div>
+        {legendData.map(({ backgroundColor, label }) => (
+          <>
+            <div
+              style={{
+                backgroundColor,
+                borderRadius: '100%',
+                height: '20px',
+                width: '20px',
+              }}
+            ></div>
+            <span
+              style={{
+                color: '#fff',
+              }}
+            >
+              {label}
+            </span>
+          </>
+        ))}
+      </div>
+    </PieCircleContainer>
   );
 };
+
+const PieCircleContainer = styled.div`
+  height: 100%;
+  width: 100%;
+`;
+
+const StyledChart = styled(Chart)`
+  background: 'none';
+`;

@@ -26,3 +26,7 @@ a:hover {
   margin: 0;
   padding: 0;
 }
+
+#__next, body, html {
+  height: 100%;
+}
