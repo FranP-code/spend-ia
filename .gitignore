@@ -1,8 +1,9 @@
+.env
 .husky
+.next
 node_modules
 package-lock.json
-yarn-error.log
-yarn.lock
-.next
 pages/normalize.css
 pnpm-lock.yaml
+yarn-error.log
+yarn.lock

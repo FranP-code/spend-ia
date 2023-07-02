@@ -1,0 +1,13 @@
+{
+  "name": "@monorepo/server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "echo 'abc'",
+    "build": "tsc --build"
+  },
+  "author": "",
+  "license": "ISC"
+}
