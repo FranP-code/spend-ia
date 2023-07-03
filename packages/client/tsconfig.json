@@ -1,12 +1,18 @@
 {
   "extends": "../../tsconfig.json",
-  "files": ["../server/app.ts"],
+  "files": [
+    "../server/app.ts"
+  ],
   "compilerOptions": {
     "rootDir": "../",
     "composite": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
@@ -21,14 +27,32 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": [
+        "./*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "pages", "components", "screens", "lib", "./*"],
+  "include": [
+    "next-env.d.ts",
+    "pages",
+    "components",
+    "screens",
+    "lib",
+    "./*",
+    ".next/types/**/*.ts"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
     }
   ],
-  "exclude": ["node_modules", "../server/app.ts"]
+  "exclude": [
+    "node_modules",
+    "../server/app.ts"
+  ]
 }
