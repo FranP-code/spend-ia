@@ -1,7 +1,8 @@
 {
   "extends": "../../tsconfig.json",
-  "files": [],
+  "files": ["../server/app.ts"],
   "compilerOptions": {
+    "rootDir": "../",
     "composite": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -23,11 +24,11 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "pages", "components", "screens", "lib"],
+  "include": ["next-env.d.ts", "pages", "components", "screens", "lib", "./*"],
   "references": [
     {
       "path": "./tsconfig.node.json"
     }
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "../server/app.ts"]
 }

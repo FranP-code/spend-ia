@@ -13,6 +13,7 @@ module.exports = {
   plugins: ['react', 'prettier', 'sort-keys-fix', 'better-styled-components'],
   rules: {
     '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
     'arrow-body-style': ['error', 'as-needed'],
     'better-styled-components/sort-declarations-alphabetically': 2,
     'import/order': [

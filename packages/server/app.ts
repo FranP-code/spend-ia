@@ -1,7 +1,9 @@
 import { z } from 'zod';
 import { createHTTPServer } from '@trpc/server/adapters/standalone';
+import cors from 'cors';
 import { db } from './db';
 import { publicProcedure, router } from './trpc';
+
 const appRouter = router({
   userById: publicProcedure.input(z.string()).query(async (opts) => {
     const { input } = opts;
@@ -18,10 +20,11 @@ const appRouter = router({
   }),
 });
 
+export type AppRouter = typeof appRouter;
+
 const server = createHTTPServer({
+  middleware: cors(),
   router: appRouter,
 });
 
 server.listen(3000);
-
-export type AppRouter = typeof appRouter;

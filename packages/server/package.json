@@ -1,13 +1,20 @@
 {
-  "name": "@monorepo/server",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
   "scripts": {
-    "dev": "echo 'abc'",
+    "dev": "nodemon app.ts",
     "build": "tsc --build"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.13",
+    "cors": "^2.8.5",
+    "ts-node": "^10.9.1"
+  }
 }
