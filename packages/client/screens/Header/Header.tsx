@@ -32,8 +32,9 @@ const TabsContainer = styled.div`
 
 const StyledTab = styled.div<{
   active: boolean;
+  theme: Theme;
 }>`
-  background: ${({ active, theme }: { active: boolean; theme: Theme }) =>
+  background: ${({ active, theme }) =>
     active ? theme.colors.complementary : theme.colors.secondary};
   padding: 12px 0px;
   text-align: center;
@@ -46,6 +47,6 @@ const StyledTab = styled.div<{
   }
 `;
 
-const TabText = styled.h3`
-  color: ${({ theme }: { theme: Theme }) => theme.colors.textColor.primary};
+const TabText = styled.h3<{ theme: Theme }>`
+  color: ${({ theme }) => theme.colors.textColor.primary};
 `;

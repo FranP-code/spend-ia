@@ -41,7 +41,7 @@ export const SpendScreen = (): JSX.Element => {
   );
 };
 
-const SpendScreenContainer = styled.div`
-  background-color: ${({ theme }: { theme: Theme }) => theme.colors.primary};
+const SpendScreenContainer = styled.div<{ theme: Theme }>`
+  background-color: ${({ theme }) => theme.colors.primary};
   height: 100%;
 `;
