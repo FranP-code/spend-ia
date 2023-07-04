@@ -16,7 +16,7 @@ const theme: Theme = {
     secondary: '#443C68',
     complementary: '#393053',
     textColor: {
-      primary: '#ddd',
+      primary: '#fff',
     },
   },
 };

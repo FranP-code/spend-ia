@@ -12,8 +12,8 @@ export const Header = (): JSX.Element => {
     <TabsContainer>
       {tabs.map((tabData) => (
         <StyledTab
-          active={tab.id === tabData.id}
           key={tabData.id}
+          active={tab.id === tabData.id}
           onClick={() => {
             setTab(tabData);
           }}

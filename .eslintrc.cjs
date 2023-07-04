@@ -40,6 +40,16 @@ module.exports = {
       },
     ],
     'prettier/prettier': 'error',
+    'react/jsx-sort-props': [
+      'error',
+      {
+        callbacksLast: true,
+        ignoreCase: true,
+        noSortAlphabetically: false,
+        reservedFirst: true,
+        shorthandFirst: true,
+      },
+    ],
     'sort-keys-fix/sort-keys-fix': 'error',
   },
 };
