@@ -5,12 +5,19 @@ module.exports = {
   },
   extends: ['plugin:react/recommended', 'standard-with-typescript', 'prettier'],
   overrides: [],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     project: './tsconfig.json',
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier', 'sort-keys-fix', 'better-styled-components'],
+  plugins: [
+    'better-styled-components',
+    'prettier',
+    'react',
+    'sort-keys-fix',
+    'typescript-sort-keys',
+  ],
   rules: {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
@@ -52,5 +59,7 @@ module.exports = {
       },
     ],
     'sort-keys-fix/sort-keys-fix': 'error',
+    'typescript-sort-keys/interface': 'error',
+    'typescript-sort-keys/string-enum': 'error',
   },
 };
