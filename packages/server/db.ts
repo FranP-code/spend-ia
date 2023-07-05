@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 export interface User {
   id: string;
   name: string;
@@ -15,4 +17,15 @@ export const db = {
     findById: async (id: string) => users.find((user) => user.id === id),
     findMany: async () => users,
   },
+};
+
+export default async (): Promise<void> => {
+  await mongoose
+    .connect(process.env.MONGO_URI as string)
+    .then(() => {
+      console.log('Connected to MongoDB');
+    })
+    .catch((error) => {
+      console.error('Error connecting to MongoDB:', error);
+    });
 };

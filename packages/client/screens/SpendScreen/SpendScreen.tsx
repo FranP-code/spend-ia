@@ -19,7 +19,7 @@ export const SpendScreen = (): JSX.Element => {
   ]);
   useEffect(() => {
     trpc.userCreate
-      .mutate({ name: 'ABC' })
+      .mutate({ email: 'abdfasfasdfasdc@gmail.com', name: 'ABC', password: '23eqwrqwerqwe4' })
       .then(() => {
         trpc.userList
           .query()

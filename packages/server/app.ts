@@ -1,21 +1,26 @@
 import { z } from 'zod';
 import { createHTTPServer } from '@trpc/server/adapters/standalone';
 import cors from 'cors';
-import { db } from './db';
+import dotenv from 'dotenv';
+import dbConnection from './db';
 import { publicProcedure, router } from './trpc';
+import { User, UserSchema } from './schemas';
+dotenv.config();
+
+console.log(process.env);
 
 const appRouter = router({
   userById: publicProcedure.input(z.string()).query(async (opts) => {
     const { input } = opts;
-    const user = await db.user.findById(input);
+    const user = await User.findById(input);
     return user;
   }),
-  userCreate: publicProcedure.input(z.object({ name: z.string() })).mutation(async ({ input }) => {
-    const user = await db.user.create(input);
+  userCreate: publicProcedure.input(UserSchema).mutation(async ({ input }) => {
+    const user = await User.create(input);
     return user;
   }),
   userList: publicProcedure.query(async () => {
-    const users = await db.user.findMany();
+    const users = await User.find();
     return users;
   }),
 });
@@ -27,4 +32,10 @@ const server = createHTTPServer({
   router: appRouter,
 });
 
-server.listen(3000);
+dbConnection()
+  .then(() => {
+    server.listen(3000);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
