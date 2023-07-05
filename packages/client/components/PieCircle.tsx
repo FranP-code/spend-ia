@@ -15,7 +15,6 @@ export const PieCircle = (props: { pieCircleData: PieCircleData }): JSX.Element 
     pieCircleData.sort(([[, a]], [[, b]]) => b - a).map(([, item]) => item),
     pieCircleData.map(([, { backgroundColor }]) => backgroundColor),
   ];
-  console.log({ data, legendData });
   return (
     <PieCircleContainer>
       <ChartContainer height={height}>

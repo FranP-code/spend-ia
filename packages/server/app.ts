@@ -5,9 +5,8 @@ import dotenv from 'dotenv';
 import dbConnection from './db';
 import { publicProcedure, router } from './trpc';
 import { User, UserSchema } from './schemas';
-dotenv.config();
 
-console.log(process.env);
+dotenv.config();
 
 const appRouter = router({
   userById: publicProcedure.input(z.string()).query(async (opts) => {
@@ -37,5 +36,6 @@ dbConnection()
     server.listen(3000);
   })
   .catch((e) => {
+    // eslint-disable-next-line no-console
     console.log(e);
   });

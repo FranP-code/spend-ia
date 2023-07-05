@@ -24,13 +24,16 @@ export const SpendScreen = (): JSX.Element => {
         trpc.userList
           .query()
           .then((a) => {
+            // eslint-disable-next-line no-console
             console.log(a);
           })
           .catch((e) => {
+            // eslint-disable-next-line no-console
             console.log(e);
           });
       })
       .catch((e) => {
+        // eslint-disable-next-line no-console
         console.log(e);
       });
   }, []);

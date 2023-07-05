@@ -39,6 +39,7 @@ module.exports = {
         ],
       },
     ],
+    'no-console': 'error',
     'prettier/prettier': 'error',
     'react/jsx-sort-props': [
       'error',

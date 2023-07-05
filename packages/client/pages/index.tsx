@@ -11,7 +11,7 @@ const HeadIndex = (): JSX.Element => (
   <>
     <Head>
       <title>{APP_NAME}</title>
-      <meta property="og:title" content={APP_NAME} key="title" />
+      <meta key="title" content={APP_NAME} property="og:title" />
     </Head>
   </>
 );
