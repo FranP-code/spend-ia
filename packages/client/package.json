@@ -1,13 +1,8 @@
 {
-  "name": "spendia",
+  "name": "client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts.backup": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
   "scripts": {
     "dev": "next dev -p 8080",
     "build": "next build",

@@ -1,9 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
 import styled, { ThemeProvider } from 'styled-components';
+import { APP_NAME, SPEND_SCREEN_ID } from 'utils/constants';
 import { Header, SpendScreen } from '@/screens';
 import { type Tab } from '@/lib/types';
-import { APP_NAME, SPEND_SCREEN_ID } from '@/lib/constants';
 import { useAppStore } from '@/lib/storage';
 import theme from '@/lib/theme';
 

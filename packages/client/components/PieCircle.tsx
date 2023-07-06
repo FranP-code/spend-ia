@@ -1,9 +1,9 @@
 import React from 'react';
 import Chart from 'react-google-charts';
 import styled, { useTheme } from 'styled-components';
+import { capitalize } from 'utils';
 import { type Theme } from '@/lib/theme';
 import { type PieCircleData } from '@/lib/types';
-import { capitalize } from '@/lib/utils';
 
 export const PieCircle = (props: { pieCircleData: PieCircleData }): JSX.Element => {
   const { pieCircleData } = props;

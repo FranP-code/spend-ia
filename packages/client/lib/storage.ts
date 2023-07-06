@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { create } from 'zustand';
+import { SPEND_SCREEN_ID, SPEND_SCREEN_NAME } from 'utils/constants';
 import { type UserSpendData, type Tab } from '@/lib/types';
-import { SPEND_SCREEN_ID, SPEND_SCREEN_NAME } from '@/lib/constants';
 
 interface appStore {
-  tab: Tab;
   setTab: (props: Tab) => void;
   setUserSpendData: (props: UserSpendData[]) => void;
+  tab: Tab;
   userSpendData: UserSpendData[];
 }
 

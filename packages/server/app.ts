@@ -5,11 +5,13 @@ import dotenv from 'dotenv';
 import dbConnection from './db';
 import { publicProcedure, router } from './trpc';
 import { User, UserSchema } from './schemas';
+import { type UserType } from './types';
+import seed from './seed';
 
 dotenv.config();
 
 const appRouter = router({
-  userById: publicProcedure.input(z.string()).query(async (opts) => {
+  userById: publicProcedure.input(z.string()).query(async (opts): Promise<UserType | null> => {
     const { input } = opts;
     const user = await User.findById(input);
     return user;
@@ -18,7 +20,7 @@ const appRouter = router({
     const user = await User.create(input);
     return user;
   }),
-  userList: publicProcedure.query(async () => {
+  userList: publicProcedure.query(async (): Promise<UserType[]> => {
     const users = await User.find();
     return users;
   }),
@@ -34,6 +36,7 @@ const server = createHTTPServer({
 dbConnection()
   .then(() => {
     server.listen(3000);
+    void seed();
   })
   .catch((e) => {
     // eslint-disable-next-line no-console

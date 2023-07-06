@@ -19,6 +19,7 @@ module.exports = {
     'typescript-sort-keys',
   ],
   rules: {
+    '@typescript-eslint/promise-function-async': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     'arrow-body-style': ['error', 'as-needed'],

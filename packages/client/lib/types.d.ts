@@ -9,8 +9,8 @@ interface Currency {
 }
 
 interface Category {
-  label: string;
   backgroundColor: string;
+  label: string;
 }
 
 export interface UserSpendData {

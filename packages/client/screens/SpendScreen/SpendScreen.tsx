@@ -4,7 +4,7 @@ import { PieCircle } from '@/components';
 import { type Theme } from '@/lib/theme';
 import { useAppStore } from '@/lib/storage';
 import { type PieCircleData } from '@/lib/types';
-import { trpc } from '../../trpc';
+import { trpc } from '@/trpc';
 
 export const SpendScreen = (): JSX.Element => {
   const userSpendData = useAppStore((state) => state.userSpendData);
